@@ -1,19 +1,20 @@
 import React from 'react';
 import Paper from '@mui/material/Paper';
-import { Theme, Typography } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 import AvaAvatar from '../AvaAvatar';
 import { ProfileContainer } from './styles';
 
 interface Props {}
 
 const Profile: React.FC<Props> = props => {
+  const theme = useTheme();
   return (
     <ProfileContainer>
       <AvaAvatar
         className="ava-avatar"
         sx={{
-          width: 72,
-          height: 72,
+          width: theme.spacing(9),
+          height: theme.spacing(9),
         }}
       />
       <Typography variant="subtitle1" fontWeight="">
