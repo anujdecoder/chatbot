@@ -1,9 +1,17 @@
-import Paper from '@mui/material/Paper';
 import React from 'react';
 import { Background } from './styles';
+import Chatbot from './chatbot';
+import { ThemeProvider } from '@emotion/react';
+import theme from './utils/theme';
 
-function App() {
-  return <Background>Hello World</Background>;
-}
+const App: React.FC = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Background>
+        <Chatbot />
+      </Background>
+    </ThemeProvider>
+  );
+};
 
 export default App;
