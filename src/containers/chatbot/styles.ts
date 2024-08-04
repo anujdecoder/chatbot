@@ -34,7 +34,7 @@ export const ListContainer = styled('div')`
 
 export const StyledLoginButton = styled(Button)`
   align-items: center;
-  ${({ theme }) => ({ margin: theme.spacing(2, 0) })}
+  ${({ theme }) => ({ margin: theme.spacing(0, 0, 2) })}
 
   .MuiTypography-root {
     text-transform: none;
