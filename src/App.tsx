@@ -1,6 +1,6 @@
 /* eslint-disable complexity */
 import React from 'react';
-import Login from './containers/Login';
+import Login from './containers/login';
 import { useApp } from './providers/AppProvider';
 import Loading from './components/Loading';
 import Chatbot from './containers/chatbot';

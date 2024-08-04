@@ -5,7 +5,6 @@ interface Props extends AvatarProps {}
 
 const AvaAvatar: React.FC<Props> = props => {
   const url = process.env.PUBLIC_URL + '/ava.png';
-  console.log(url);
   return <Avatar {...props} alt="Ava" src={url} />;
 };
 
