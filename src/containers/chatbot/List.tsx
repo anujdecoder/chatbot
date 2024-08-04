@@ -7,7 +7,7 @@ import Sent from '../../components/Messages/Sent';
 import { ListContainer, StyledLoginButton } from './styles';
 import { Typography } from '@mui/material';
 import { Message } from '../../types/messages';
-import DeleteMessage from './DeleteModal';
+import DeleteMessage from './DeleteMessage';
 
 enum ActionType {
   Edit = 'EDIT',

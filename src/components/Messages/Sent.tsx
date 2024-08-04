@@ -51,7 +51,7 @@ const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
     open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorEl(event.currentTarget.children.item(0)! as any);
+      setAnchorEl(event.currentTarget.getElementsByClassName('message').item(0)! as any);
     },
     handleClose = () => {
       setAnchorEl(null);
