@@ -1,9 +1,10 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { ListMessagesResponse } from '../../../types/messages';
+import { ListMessagesResponse, Message } from '../../../types/messages';
 import { useApp } from '../../../providers/AppProvider';
 
 const PAGE_SIZE = 10;
 
+// eslint-disable-next-line complexity
 const useFetchMessages = () => {
   const { headers } = useApp();
 
@@ -14,8 +15,7 @@ const useFetchMessages = () => {
         headers,
       }
     );
-    const json = await res.json();
-    return JSON.parse(json) as ListMessagesResponse;
+    return res.json() as Promise<ListMessagesResponse>;
   };
   const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } =
     useInfiniteQuery({
@@ -27,7 +27,9 @@ const useFetchMessages = () => {
     });
 
   return {
-    messages: data,
+    messages:
+      data?.pages.reduce((p, n) => [...p, ...n.pages], [] as Message[]).reverse() ||
+      ([] as Message[]),
     loading: isFetching,
     error: error,
     loadMore: () => !isFetchingNextPage && fetchNextPage(),

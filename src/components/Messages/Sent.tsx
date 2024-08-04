@@ -1,17 +1,18 @@
 import React from 'react';
 import { SentContainer } from './styles';
 import { Typography } from '@mui/material';
+import { Message } from '../../types/messages';
 
 interface Props {
-  message?: string;
+  message: Message;
   onEdit?: () => void;
   onDelete?: () => void;
 }
 
-const Sent: React.FC<Props> = ({ message = 'Hey Ava! thanks for responding' }) => (
+const Sent: React.FC<Props> = ({ message }) => (
   <SentContainer>
     <Typography variant="body2" paragraph className="message">
-      {message}
+      {message.body}
     </Typography>
   </SentContainer>
 );

@@ -15,6 +15,12 @@ export const ChatContainer = styled('div')`
     width: 720px;
     text-align: center;
   }
+
+  .messages {
+    height: calc(100% - 232px);
+    ${({ theme }) => ({ padding: theme.spacing(3, 0, 1) })}
+    overflow: auto;
+  }
 `;
 
 export const ListLoaderContainer = styled('div')`

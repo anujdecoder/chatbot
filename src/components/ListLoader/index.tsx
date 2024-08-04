@@ -25,7 +25,7 @@ const Received = () => {
 };
 
 const ListLoader: React.FC = () => (
-  <ListLoaderContainer>
+  <ListLoaderContainer className="messages">
     <Sent />
     <Received />
     <Sent />
