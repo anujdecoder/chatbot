@@ -1,7 +1,6 @@
 import React, { createContext, FC, useEffect, useState } from 'react';
 import FirebaseAuthService from '../services/FirebaseAuthService';
-import { getIdTokenResult, User } from 'firebase/auth';
-import Loading from '../components/Loading';
+import { User } from 'firebase/auth';
 
 type AppContextType = {
   isLoading?: boolean;
@@ -39,8 +38,6 @@ const AppProvider: FC<AppProviderProps> = ({ children }) => {
   );
 };
 
-export const useApp = () => {
-  return React.useContext<AppContextType>(AppContext);
-};
+export const useApp = () => React.useContext<AppContextType>(AppContext);
 
 export default AppProvider;

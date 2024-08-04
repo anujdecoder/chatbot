@@ -3,7 +3,7 @@ import React from 'react';
 import themes from '../utils/themes';
 
 interface Props {
-  children: any;
+  children?: React.ReactNode;
 }
 
 const DarkModeContext = React.createContext<any>({});

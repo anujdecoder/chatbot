@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React from 'react';
 import Login from './containers/Login';
 import { useApp } from './providers/AppProvider';

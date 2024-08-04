@@ -1,19 +1,15 @@
 import firebase from '../config/firebase';
-import { signInWithPopup, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, onAuthStateChanged, User } from 'firebase/auth';
 
 const { auth, provider } = firebase;
 
-const loginUser = () => {
-  return signInWithPopup(auth, provider);
-};
+const loginUser = () => signInWithPopup(auth, provider);
 
-const logoutUser = () => {
-  return auth.signOut();
-};
+const logoutUser = () => auth.signOut();
 
-const subscribeToAuthChanges = (handleAuthChange: any) => {
+// eslint-disable-next-line no-unused-vars
+const subscribeToAuthChanges = (handleAuthChange: (u: User | null) => void) => {
   onAuthStateChanged(auth, user => {
-    console.log(user);
     handleAuthChange(user);
   });
 };

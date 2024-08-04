@@ -1,9 +1,6 @@
+import { CircularProgress } from '@mui/material';
 import React from 'react';
 
-interface Props {}
-
-const Loading: React.FC<Props> = props => {
-  return <></>;
-};
+const Loading: React.FC = () => <CircularProgress></CircularProgress>;
 
 export default Loading;

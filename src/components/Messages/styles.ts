@@ -24,7 +24,8 @@ export const ReceivedContainer = styled('div')`
   .message {
     ${({ theme }) => ({
       padding: theme.spacing(1.5, 2.5),
-      backgroundColor: theme.palette.grey[300],
+      backgroundColor: theme.palette.secondary.light,
+      color: theme.palette.secondary.contrastText,
       borderRadius: theme.spacing(0, 4, 4),
     })}
   }
