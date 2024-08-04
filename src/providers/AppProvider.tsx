@@ -6,6 +6,7 @@ type AppContextType = {
   isLoading?: boolean;
   isLoggedIn?: boolean;
   user?: User | null;
+  headers?: any;
 };
 
 interface AppProviderProps {
@@ -13,6 +14,18 @@ interface AppProviderProps {
 }
 
 const AppContext = createContext<AppContextType>({});
+
+const getHeaders = (user: User | null) => {
+  if (user) {
+    const obj = user.toJSON() as any;
+    return {
+      'x-token': obj['stsTokenManager']['accessToken'],
+      'x-user-id': obj['uid'],
+    };
+  }
+
+  return null;
+};
 
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -31,6 +44,7 @@ const AppProvider: FC<AppProviderProps> = ({ children }) => {
         user,
         isLoggedIn: !!user,
         isLoading,
+        headers: getHeaders(user),
       }}
     >
       {children}

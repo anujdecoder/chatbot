@@ -7,7 +7,7 @@ import { ProfileContainer } from './styles';
 const Profile: React.FC = () => {
   const theme = useTheme();
   return (
-    <ProfileContainer>
+    <ProfileContainer className="profile-container">
       <AvaAvatar
         className="ava-avatar"
         sx={{
@@ -18,9 +18,7 @@ const Profile: React.FC = () => {
       <Typography variant="subtitle1" fontWeight="">
         {"Hey👋, I'm Ava"}
       </Typography>
-      <Typography variant="body2" color="grey">
-        Ask me anything or pick a place to start
-      </Typography>
+      <Typography variant="body2">Ask me anything or pick a place to start</Typography>
     </ProfileContainer>
   );
 };
