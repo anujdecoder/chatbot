@@ -4,8 +4,8 @@ import { useFetchMessages } from './data';
 import ListLoader from '../../components/ListLoader';
 import Received from '../../components/Messages/Received';
 import Sent from '../../components/Messages/Sent';
-import { ListContainer } from './styles';
-import { Button, Typography } from '@mui/material';
+import { ListContainer, StyledLoginButton } from './styles';
+import { Typography } from '@mui/material';
 
 // eslint-disable-next-line complexity
 const List: React.FC = () => {
@@ -21,9 +21,9 @@ const List: React.FC = () => {
       )}
       {hasMore && loadingMore && <ListLoader />}
       {hasMore && !loadingMore && (
-        <Button onClick={loadMore}>
+        <StyledLoginButton onClick={loadMore}>
           <Typography>Load more</Typography>
-        </Button>
+        </StyledLoginButton>
       )}
     </ListContainer>
   );

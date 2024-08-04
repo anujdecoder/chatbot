@@ -20,12 +20,16 @@ const useCreateMutation = () => {
   const execute = (body: string) =>
     mutate(body, {
       onSuccess: (data: Message[]) => {
-        const x = queryClient.setQueryData(
-          ['messages'],
-          (old: InfiniteData<ListMessagesResponse>) =>
-            (old.pages[0].pages = [...data.reverse(), ...old.pages[0].pages])
-        );
-        console.log(x);
+        queryClient.setQueryData(['messages'], (old: InfiniteData<ListMessagesResponse>) => ({
+          ...old,
+          pages: [
+            {
+              ...old.pages[0],
+              pages: [...data.reverse(), ...old.pages[0].pages],
+            },
+            ...old.pages.slice(1),
+          ],
+        }));
       },
     });
 

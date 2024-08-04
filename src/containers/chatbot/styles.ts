@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Paper } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 
 export const StyledPaper = styled(Paper)`
   padding: 24px 32px;
@@ -30,4 +30,13 @@ export const ListContainer = styled('div')`
   overflow: auto;
   display: flex;
   flex-direction: column-reverse;
+`;
+
+export const StyledLoginButton = styled(Button)`
+  align-items: center;
+  ${({ theme }) => ({ margin: theme.spacing(2, 0) })}
+
+  .MuiTypography-root {
+    text-transform: none;
+  }
 `;
