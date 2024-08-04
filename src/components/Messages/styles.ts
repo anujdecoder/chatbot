@@ -3,6 +3,10 @@ import { styled } from '@mui/material/styles';
 export const SentContainer = styled('div')`
   display: flex;
   justify-content: flex-end;
+  cursor: pointer;
+  ${({ theme }) => ({
+    margin: theme.spacing(0, 0, 2),
+  })}
 
   .message {
     ${({ theme }) => ({
@@ -10,6 +14,7 @@ export const SentContainer = styled('div')`
       backgroundColor: theme.palette.primary.main,
       borderRadius: theme.spacing(4, 0, 4, 4),
       color: theme.palette.primary.contrastText,
+      margin: 0,
     })}
   }
 `;

@@ -11,7 +11,7 @@ const DarkModeContext = React.createContext<any>({});
 const { darkTheme, lightTheme } = themes;
 
 const Provider: React.FC<Props> = ({ children }) => {
-  const [darkMode, setDarkMode] = React.useState(false);
+  const [darkMode, setDarkMode] = React.useState(true);
   return (
     <DarkModeContext.Provider value={setDarkMode}>
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>{children}</ThemeProvider>
