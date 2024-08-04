@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import themes from './utils/themes';
 import { Fab } from '@mui/material';
 import DarkModeOutlined from '@mui/icons-material/DarkModeOutlined';
+import Login from './routes/Login';
 
 const { darkTheme, lightTheme } = themes;
 
@@ -13,6 +14,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Background>
+        <Login></Login>
         <Chatbot />
       </Background>
       <Fab
