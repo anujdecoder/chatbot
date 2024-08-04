@@ -8,7 +8,7 @@ const PAGE_SIZE = 10;
 const useFetchMessages = () => {
   const { headers } = useApp();
 
-  const fetchProjects = async ({ pageParam }: { pageParam: string }) => {
+  const listMessages = async ({ pageParam }: { pageParam: string }) => {
     const res = await fetch(
       `${process.env.REACT_APP_SERVER_URL}/messages?first=${PAGE_SIZE}&after=${pageParam}`,
       {
@@ -20,7 +20,7 @@ const useFetchMessages = () => {
   const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } =
     useInfiniteQuery({
       queryKey: ['messages'],
-      queryFn: fetchProjects,
+      queryFn: listMessages,
       initialPageParam: '',
       getNextPageParam: lastPage =>
         lastPage.pageParams.hasMore ? lastPage.pageParams.cursor : null,
@@ -28,8 +28,7 @@ const useFetchMessages = () => {
 
   return {
     messages:
-      data?.pages.reduce((p, n) => [...p, ...n.pages], [] as Message[]).reverse() ||
-      ([] as Message[]),
+      data?.pages.reduce((p, n) => [...p, ...n.pages], [] as Message[]) || ([] as Message[]),
     loading: isFetching,
     error: error,
     loadMore: () => !isFetchingNextPage && fetchNextPage(),

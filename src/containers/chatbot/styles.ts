@@ -18,11 +18,16 @@ export const ChatContainer = styled('div')`
 
   .messages {
     height: calc(100% - 232px);
-    ${({ theme }) => ({ padding: theme.spacing(3, 0, 1) })}
-    overflow: auto;
+    ${({ theme }) => ({ padding: theme.spacing(3, 2, 1) })}
   }
 `;
 
 export const ListLoaderContainer = styled('div')`
   ${({ theme }) => ({ padding: theme.spacing(1, 0) })}
+`;
+
+export const ListContainer = styled('div')`
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
 `;

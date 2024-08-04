@@ -21,6 +21,7 @@ const getHeaders = (user: User | null) => {
     return {
       'x-token': obj['stsTokenManager']['accessToken'],
       'x-user-id': obj['uid'],
+      'Content-Type': 'application/json',
     };
   }
 

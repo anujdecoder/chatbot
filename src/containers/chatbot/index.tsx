@@ -2,8 +2,8 @@ import React from 'react';
 import Profile from '../../components/Profile';
 import { ChatContainer, StyledPaper } from './styles';
 
-import Input from '../../components/Input';
 import List from './List';
+import Textbox from './Textbox';
 
 interface Props {
   hello?: string;
@@ -14,7 +14,7 @@ const Chatbot: React.FC<Props> = () => (
     <StyledPaper>
       <Profile />
       <List />
-      <Input />
+      <Textbox />
     </StyledPaper>
   </ChatContainer>
 );
