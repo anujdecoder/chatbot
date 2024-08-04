@@ -6,7 +6,19 @@ interface Props {
 }
 
 const QueryProvider: React.FC<Props> = ({ children }) => {
-  const queryClient = React.useRef(new QueryClient({}));
+  const queryClient = React.useRef(
+    new QueryClient({
+      defaultOptions: {
+        queries: {
+          refetchOnMount: false,
+          refetchOnWindowFocus: false,
+          refetchOnReconnect: false,
+          staleTime: Infinity,
+          retry: false,
+        },
+      },
+    })
+  );
   return <QueryClientProvider client={queryClient.current}>{children}</QueryClientProvider>;
 };
 
