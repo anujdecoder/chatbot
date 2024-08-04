@@ -15,7 +15,7 @@ const App: React.FC = () => {
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Background>
         <Login></Login>
-        <Chatbot />
+        {/* <Chatbot /> */}
       </Background>
       <Fab
         onClick={() => setDarkMode(d => !d)}
