@@ -10,6 +10,5 @@ describe('Sent message behavior', () => {
     };
     cy.mount(<Sent message={message} onEdit={() => {}} onDelete={() => {}} index={0} />);
     cy.get('div[tabindex="0"]').should('have.text', message.body);
-    cy.screenshot();
   });
 });
