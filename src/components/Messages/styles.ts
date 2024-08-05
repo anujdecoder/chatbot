@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 export const SentContainer = styled('div')`
   display: flex;
   justify-content: flex-end;
-  cursor: pointer;
+
   ${({ theme }) => ({
     margin: theme.spacing(0, 0, 2),
   })}

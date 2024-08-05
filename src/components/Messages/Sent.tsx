@@ -78,7 +78,12 @@ const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
   };
   const divProps = message.deleted
     ? {}
-    : { tabIndex: index, onClick: handleClick, onKeyDown: handleKeyDown };
+    : {
+        tabIndex: index,
+        onClick: handleClick,
+        onKeyDown: handleKeyDown,
+        style: { cursor: 'pointer' },
+      };
   return (
     <SentContainer>
       <div {...divProps}>
