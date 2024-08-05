@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# Hey👋, I'm Ava
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I'm a chatbot created by Anuj for Artisan Full Stack Developer role.
 
-## Available Scripts
+An online demo of the app can be found at [https://ava-chatbot-f2551.web.app/](https://ava-chatbot-f2551.web.app/).
 
-In the project directory, you can run:
+## Salient Features
 
-### `npm start`
+* **Google Authentication** - The app uses [Firebase](https://firebase.google.com/) for authenticating with your gmail
+  account.
+* **Persistence** - Your entire conversation with Ava is stored in Firestore database.
+* **Accessible** - The entire application is accessible via keyboard.
+* **Responsive** - Ava is built using [MaterialUI](https://mui.com/material-ui) and is responsive out of the box
+* **Dark mode!** - Well no modern day application is complete without dark mode!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Take a look at [Ava](https://ava-chatbot-f2551.web.app/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Project setup:
 
-### `npm test`
+To run the code in local machine, you need to create and .env file using sample.env.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You will need to update :
 
-### `npm run build`
+* `REACT_APP_API_KEY`
+* `REACT_APP_PROJECT_ID`
+* `REACT_APP_AUTH_DOMAIN`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+with the project keys you get from firebase. This project uses firebase for authentication and hence needs a firebase
+project to be run in local.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the project directory, run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* `npm install` To install the dependencies
+* `npm start` To run the project. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* `npm run deploy` To build and host the app on firebase
 
-### `npm run eject`
+### Limitations/Features missing:
+I feel following features are missing from the app that could not be implemented because of time constraints
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* **Testing**  - I thought of using cypress but could not complete it
+* **Localization** - This can be achieved using material-ui/labs 
