@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 describe('Home', () => {
   it('can login and view ava', () => {
     cy.login();
@@ -12,16 +13,39 @@ describe('Home', () => {
     cy.contains('Load more');
   });
 
-  // eslint-disable-next-line max-statements
+  const createMessage = 'This message was sent via cypress at ' + Date.now();
   it('can send messages', () => {
     cy.login();
     cy.visit('/');
     cy.contains('Load more');
 
-    const message = 'This message was sent via cypress at ' + Date.now();
-    cy.get('textarea[placeholder="Your question"]').type(message);
+    cy.get('textarea[placeholder="Your question"]').type(createMessage);
     cy.get('.MuiInputAdornment-root .MuiIconButton-root').click();
-    cy.contains(message);
+    cy.contains(createMessage);
+  });
+
+  const updateMessage = 'This message was updated via cypress at ' + Date.now();
+  it('can update message', () => {
+    cy.login();
+    cy.visit('/');
+
+    cy.contains(createMessage).click();
+    cy.contains('Edit').click();
+
+    cy.get('.MuiDialogContent-root textarea[rows="4"]').type(updateMessage);
+    cy.get('.MuiDialogActions-root button:last-child').click();
+    cy.contains('Update message').should('not.exist');
+    cy.contains(updateMessage);
+  });
+
+  it('can delete message', () => {
+    cy.login();
+    cy.visit('/');
+
+    cy.contains(updateMessage).click();
+    cy.contains('Delete').click();
+    cy.contains('Ok').click();
+    cy.contains(updateMessage).should('not.exist');
   });
 
   afterEach(() => {
