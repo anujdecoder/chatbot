@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React from 'react';
 import { SentContainer } from './styles';
 import { alpha, Menu, MenuItem, MenuProps, styled, Typography } from '@mui/material';
@@ -46,7 +47,7 @@ interface Props {
   index: number;
 }
 
-// eslint-disable-next-line complexity, max-statements
+// eslint-disable-next-line max-statements
 const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -56,6 +57,12 @@ const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
       return;
     }
     setAnchorEl(event.currentTarget);
+  };
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (event.key === 'Enter' && !message.deleted) {
+      setAnchorEl(event.currentTarget);
+    }
+    event.preventDefault();
   };
   const handleClose = () => {
     setAnchorEl(null);
@@ -69,10 +76,12 @@ const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
     handleClose();
     onEdit(message);
   };
-  const divProps = message.deleted ? {} : { tabIndex: index };
+  const divProps = message.deleted
+    ? {}
+    : { tabIndex: index, onClick: handleClick, onKeyDown: handleKeyDown };
   return (
     <SentContainer>
-      <div {...divProps} onClick={handleClick}>
+      <div {...divProps}>
         <Typography variant="body2" paragraph className="message">
           {message.body}
         </Typography>
