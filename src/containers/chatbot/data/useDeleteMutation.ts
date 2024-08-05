@@ -27,6 +27,7 @@ const useDeleteMutation = (onSuccess: () => void) => {
             p.pages.forEach(m => {
               if (m.id === messageId) {
                 m.body = 'This message has been deleted';
+                m.deleted = true;
               }
             })
           );
