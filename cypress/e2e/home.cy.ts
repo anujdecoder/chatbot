@@ -8,7 +8,20 @@ describe('Home', () => {
   it('can load more messages', () => {
     cy.login();
     cy.visit('/');
+    cy.contains('Load more').click();
     cy.contains('Load more');
+  });
+
+  // eslint-disable-next-line max-statements
+  it('can send messages', () => {
+    cy.login();
+    cy.visit('/');
+    cy.contains('Load more');
+
+    const message = 'This message was sent via cypress at ' + Date.now();
+    cy.get('textarea[placeholder="Your question"]').type(message);
+    cy.get('.MuiInputAdornment-root .MuiIconButton-root').click();
+    cy.contains(message);
   });
 
   afterEach(() => {

@@ -5,7 +5,7 @@ import serviceAccountKey from './serviceAccount.json';
 
 export default defineConfig({
   e2e: {
-    baseUrl: 'https://ava-chatbot-f2551.web.app/',
+    baseUrl: 'http://localhost:3000',
     setupNodeEvents(on, config) {
       return cypressFirebasePlugin(on, config, admin, {
         projectId: serviceAccountKey.project_id,
