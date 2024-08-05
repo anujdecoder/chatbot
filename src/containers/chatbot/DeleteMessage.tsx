@@ -22,7 +22,7 @@ const DeleteMessage: React.FC<Props> = ({ message, clearSelection }) => {
   return (
     <>
       <Dialog maxWidth="xs" open={true} sx={{ '& .MuiDialog-paper': { width: '80%' } }}>
-        <DialogTitle>Delete following message?</DialogTitle>
+        <DialogTitle gutterBottom>Delete following message?</DialogTitle>
         <DialogContent>
           <Typography variant="body2">{message.body}</Typography>
         </DialogContent>
@@ -30,7 +30,7 @@ const DeleteMessage: React.FC<Props> = ({ message, clearSelection }) => {
           <Button autoFocus onClick={clearSelection} disabled={loading}>
             <Typography>Cancel</Typography>
           </Button>
-          <Button onClick={() => execute(message.id)} disabled={loading}>
+          <Button onClick={() => execute(message.id)} disabled={loading} variant="contained">
             {loading ? <CircularProgress /> : <Typography>Ok</Typography>}
           </Button>
         </DialogActions>

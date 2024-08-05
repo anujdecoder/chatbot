@@ -25,7 +25,7 @@ const UpdateBody: React.FC<UpdateBodyProps> = ({ message, onUpdate, loading, onC
 
   return (
     <>
-      <DialogTitle>Update message</DialogTitle>
+      <DialogTitle gutterBottom>Update message</DialogTitle>
       <DialogContent>
         <TextField
           multiline
@@ -41,7 +41,7 @@ const UpdateBody: React.FC<UpdateBodyProps> = ({ message, onUpdate, loading, onC
         <Button autoFocus onClick={onCancel} disabled={loading}>
           <Typography>Cancel</Typography>
         </Button>
-        <Button onClick={() => onUpdate(message.id, value)} disabled={loading}>
+        <Button onClick={() => onUpdate(message.id, value)} disabled={loading} variant="contained">
           {loading ? <CircularProgress /> : <Typography>Update</Typography>}
         </Button>
       </DialogActions>

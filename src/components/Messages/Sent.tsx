@@ -46,33 +46,33 @@ interface Props {
   index: number;
 }
 
-// eslint-disable-next-line complexity
+// eslint-disable-next-line complexity, max-statements
 const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null),
-    open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-      if (message.deleted) {
-        return;
-      }
-      setAnchorEl(event.currentTarget.getElementsByClassName('message').item(0)! as any);
-    },
-    handleClose = () => {
-      setAnchorEl(null);
-    };
+    if (message.deleted) {
+      return;
+    }
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleDelete = () => {
-      setAnchorEl(null);
-      onDelete(message);
-    },
-    handleEdit = () => {
-      setAnchorEl(null);
-      onEdit(message);
-    };
+    handleClose();
+    onDelete(message);
+  };
+  const handleEdit = () => {
+    handleClose();
+    onEdit(message);
+  };
   const divProps = message.deleted ? {} : { tabIndex: index };
   return (
-    <SentContainer onClick={handleClick} onKeyDown={handleClick as any}>
-      <div {...divProps}>
+    <SentContainer>
+      <div {...divProps} onClick={handleClick}>
         <Typography variant="body2" paragraph className="message">
           {message.body}
         </Typography>
