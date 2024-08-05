@@ -7,6 +7,7 @@ type AppContextType = {
   isLoggedIn?: boolean;
   user?: User | null;
   headers?: any;
+  startLoading?: () => void;
 };
 
 interface AppProviderProps {
@@ -46,6 +47,7 @@ const AppProvider: FC<AppProviderProps> = ({ children }) => {
         isLoggedIn: !!user,
         isLoading,
         headers: getHeaders(user),
+        startLoading: () => setIsLoading(true),
       }}
     >
       {children}

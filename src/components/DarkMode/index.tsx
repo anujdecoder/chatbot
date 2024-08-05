@@ -9,7 +9,7 @@ const DarkMode: React.FC = () => {
     <Fab
       onClick={() => setDarkMode((d: boolean) => !d)}
       color="primary"
-      sx={{ position: 'fixed', bottom: 16, right: 16 }}
+      sx={{ position: 'fixed', bottom: 16, left: 16 }}
     >
       <DarkModeOutlined />
     </Fab>
