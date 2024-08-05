@@ -9,7 +9,7 @@ import {
   DialogTitle,
   Typography,
 } from '@mui/material';
-import useDeleteMutation from './data/useDeleteMutation';
+import { useDeleteMutation } from './data';
 import ErrorSnackbar from '../../components/Snackbar';
 
 interface Props {
@@ -21,11 +21,7 @@ const DeleteMessage: React.FC<Props> = ({ message, clearSelection }) => {
   const { execute, error, loading } = useDeleteMutation(clearSelection);
   return (
     <>
-      <Dialog
-        maxWidth="xs"
-        open={true}
-        sx={{ '& .MuiDialog-paper': { width: '80%', maxHeight: 435 } }}
-      >
+      <Dialog maxWidth="xs" open={true} sx={{ '& .MuiDialog-paper': { width: '80%' } }}>
         <DialogTitle>Delete following message?</DialogTitle>
         <DialogContent>
           <Typography variant="body2">{message.body}</Typography>

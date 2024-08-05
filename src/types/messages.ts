@@ -1,7 +1,8 @@
 export interface Message {
   id: string;
   body: string;
-  userSent: boolean;
+  userSent?: boolean;
+  deleted?: boolean;
 }
 
 export interface PageInfo {

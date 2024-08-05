@@ -8,6 +8,7 @@ import { ListContainer, StyledLoginButton } from './styles';
 import { Typography } from '@mui/material';
 import { Message } from '../../types/messages';
 import DeleteMessage from './DeleteMessage';
+import UpdateMessage from './UpdateMessage';
 
 enum ActionType {
   Edit = 'EDIT',
@@ -49,6 +50,9 @@ const List: React.FC = () => {
       </ListContainer>
       {action?.type === ActionType.Delete && (
         <DeleteMessage message={action.message} clearSelection={clearSelection} />
+      )}
+      {action?.type === ActionType.Edit && (
+        <UpdateMessage message={action.message} clearSelection={clearSelection} />
       )}
     </>
   );

@@ -46,11 +46,15 @@ interface Props {
   index: number;
 }
 
+// eslint-disable-next-line complexity
 const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null),
     open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+      if (message.deleted) {
+        return;
+      }
       setAnchorEl(event.currentTarget.getElementsByClassName('message').item(0)! as any);
     },
     handleClose = () => {
@@ -65,9 +69,10 @@ const Sent: React.FC<Props> = ({ message, onDelete, onEdit, index }) => {
       setAnchorEl(null);
       onEdit(message);
     };
+  const divProps = message.deleted ? {} : { tabIndex: index };
   return (
     <SentContainer onClick={handleClick} onKeyDown={handleClick as any}>
-      <div tabIndex={index}>
+      <div {...divProps}>
         <Typography variant="body2" paragraph className="message">
           {message.body}
         </Typography>
