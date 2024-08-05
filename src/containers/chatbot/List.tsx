@@ -9,6 +9,7 @@ import { Typography } from '@mui/material';
 import { Message } from '../../types/messages';
 import DeleteMessage from './DeleteMessage';
 import UpdateMessage from './UpdateMessage';
+import ErrorSnackbar from '../../components/Snackbar';
 
 enum ActionType {
   Edit = 'EDIT',
@@ -21,7 +22,7 @@ interface Action {
 
 // eslint-disable-next-line complexity
 const List: React.FC = () => {
-  const { loading, messages, hasMore, loadMore, loadingMore } = useFetchMessages();
+  const { loading, messages, hasMore, loadMore, loadingMore, error } = useFetchMessages();
   const [action, setAction] = React.useState<Action | null>(null),
     clearSelection = () => setAction(null),
     onDelete = (m: Message) => setAction({ message: m, type: ActionType.Delete }),
@@ -54,6 +55,7 @@ const List: React.FC = () => {
       {action?.type === ActionType.Edit && (
         <UpdateMessage message={action.message} clearSelection={clearSelection} />
       )}
+      <ErrorSnackbar error={error} />
     </>
   );
 };

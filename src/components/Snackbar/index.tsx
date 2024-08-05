@@ -1,5 +1,6 @@
 import React from 'react';
-import { Alert, Snackbar, SnackbarCloseReason, Typography } from '@mui/material';
+import { Alert, SnackbarCloseReason, Typography } from '@mui/material';
+import { StyledSnackbar } from './styles';
 
 interface Props {
   error?: any;
@@ -20,11 +21,15 @@ const ErrorSnackbar: React.FC<Props> = ({ error }) => {
   };
 
   return (
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <StyledSnackbar
+      open={open}
+      onClose={handleClose}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+    >
       <Alert severity="error" variant="filled" onClose={handleClose}>
-        <Typography>Unable to send message. Something went wrong!</Typography>
+        <Typography>Oops! Something went wrong.</Typography>
       </Alert>
-    </Snackbar>
+    </StyledSnackbar>
   );
 };
 
