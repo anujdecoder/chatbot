@@ -15,6 +15,8 @@ An online demo of the app can be found at [https://ava-chatbot-f2551.web.app/](h
 
 Take a look at [Ava](https://ava-chatbot-f2551.web.app/).
 
+The server for Ava can be found at [chatbot-be](https://github.com/anujdecoder/chatbot-be)
+
 ### Project setup:
 
 To run the code in local machine, you need to create and .env file using sample.env.
