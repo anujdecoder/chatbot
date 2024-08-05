@@ -41,3 +41,6 @@ I feel following features are missing from the app that could not be implemented
 
 * **Testing**  - I thought of using cypress but could not complete it
 * **Localization** - This can be achieved using material-ui/labs 
+
+### Update: 
+Implemented basic e2e sanity test cases using cypress. You need to provide the `serviceAccount.json` downloaded from firebase service account. Also need to set `TEST_UID` in `cypress.env.json` to login the user
