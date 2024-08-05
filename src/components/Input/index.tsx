@@ -8,6 +8,7 @@ interface Props {
   loading?: boolean;
 }
 
+// eslint-disable-next-line complexity
 const Input: React.FC<Props> = ({ onSave, loading }) => {
   const [body, setBody] = React.useState('');
   const handleSave = () => {
@@ -26,7 +27,7 @@ const Input: React.FC<Props> = ({ onSave, loading }) => {
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
-            <IconButton onClick={handleSave} disabled={loading}>
+            <IconButton onClick={handleSave} disabled={!body || loading}>
               {loading ? <CircularProgress /> : <Send />}
             </IconButton>
           </InputAdornment>

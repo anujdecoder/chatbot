@@ -19,6 +19,7 @@ const useFetchMessages = () => {
   };
   const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } =
     useInfiniteQuery({
+      refetchOnMount: 'always',
       queryKey: ['messages'],
       queryFn: listMessages,
       initialPageParam: '',
